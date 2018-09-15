@@ -12,14 +12,16 @@ public class StudentManagement {
 
     void studentsByGroup() {
         // TODO:
+        int k = this.students.length;
         System.out.println("Danh sach sinh vien lop INT22041:");
         for (int i = 0; i < this.students.length; i++) {
-            if (this.students[i].getGroup().equals("INT22041")) {
+            if (this.students[i].getGroup().equals("INT22041") && this.students[i].getName()!= "Student") {
                 System.out.println(this.students[i].getInfo());
             }
         }
+        System.out.println("Danh sach sinh vien lop INT22042:");
         for (int i = 0; i < this.students.length; i++) {
-            if (this.students[i].getGroup().equals("INT22042")) {
+            if (this.students[i].getGroup().equals("INT22042") && this.students[i].getName()!= "Student") {
                 System.out.println(this.students[i].getInfo());
             }
         }
@@ -27,47 +29,58 @@ public class StudentManagement {
 
     void removeStudent(String id) {
         // TODO:
-        int i, j;
+        int i,j;
         for (i = 0; i < this.students.length; i++) {
             if (this.students[i].getID().equals(id)) {
                 break;
             }
         }
-        for (j = i; j < this.students.length; j++) {
+        for (j = i; j < (this.students.length)-1; j++) {
             this.students[j] = this.students[j + 1];
         }
+        this.students[(this.students.length)-1] = new Student();
     }
 
 
     public static void main(String[] args) {
         // TODO:
-        int i;
+        // cau 1:
         Student s = new Student();
-        s.setName("Cao Quy Dang");
-        s.setID("17020680");
-        s.setGroup("INT22042");
-        s.setEmail("hadesi1999@gmail.com");
-        Student b = new Student("KimSoHyun","17020170","wowKimSoHuyn@gmail.com");
-        Student a = new Student(s);
-        Student c = new Student("Luong Thi Nhu Nguyet", "17020172","nguyet@gmail.com");
-        System.out.println("Thong tin sv la:\n"+a.getInfo());
+        // cau 6:
+        Student a = new Student();
+        a.setName("Cao Quy Dang");
+        a.setID("17020680");
+        a.setGroup("INT22042");
+        a.setEmail("hadesi1999@gmail.com");
+        System.out.println(a.getInfo());
+        // cau 8:
+        Student b = new Student();
+        Student c = new Student("KimSoHyun","17020170","wowKimSoHuyn@gmail.com");
+        Student d = new Student(c);
+        System.out.println(b.getInfo());
         System.out.println(c.getInfo());
+        System.out.println(d.getInfo());
+        // cau 10:
         StudentManagement sm = new StudentManagement();
-        System.out.println(sm.sameGroup(s, a));
-
+        Student e = new Student("Luong Thi Nhu Nguyet","17020172","nguyet@gmail.com");
+        System.out.println(sm.sameGroup(a,c));
+        System.out.println(sm.sameGroup(c,e));
+        // cau 11+12+13:
         Student[] stlist = sm.students;
-
-        for (i=0;i<100;i++){
+        for (int i=0;i<100;i++){
             stlist[i] = new Student();
         }
-        stlist[0]=s;
-        stlist[1]=b;
-        stlist[2]=c;
+        // Them 3 sinh vien vao danh sach stlist
+        stlist[0]=a;
+        stlist[1]=c;
+        stlist[2]=e;
         sm.studentsByGroup();
         System.out.println("Danh sach sinh vien sau khi xoa ID: 17020170");
         sm.removeStudent("17020170");
-        for(i=0;i<5;i++){
-            stlist[i].getInfo();
+        for (int i=0;i<sm.students.length;i++){
+            if (sm.students[i].getName()!="Student"){
+                System.out.println(sm.students[i].getInfo());
+            }
         }
 
     }

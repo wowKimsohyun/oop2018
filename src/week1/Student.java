@@ -9,27 +9,35 @@ public class Student {
     private String email;
     // TODO: khai báo các phương thức getter, setter cho Student
     public String getName(){
+
         return name;
     }
     public void setName(String tenSV){
+
         this.name= tenSV;
     }
     public String getID(){
+
         return id;
     }
     public void setID(String maSV){
+
         this.id = maSV;
     }
     public String getGroup(){
+
         return group;
     }
     public void setGroup(String tenGroup){
+
         this.group = tenGroup;
     }
     public String getEmail(){
+
         return email;
     }
     public void setEmail(String nEmail) {
+
         this.email = nEmail;
     }
 
@@ -54,6 +62,7 @@ public class Student {
         // TODO:
         this.name = n;
         this.id = sid;
+        this.group = "INT22041";
         this.email = em;
     }
 
