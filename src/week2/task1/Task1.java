@@ -23,4 +23,10 @@ public class Task1 {
         }
         return fibonacci(n-1) + fibonacci(n-2);
     }
+    public static void main (String[] args){
+        int a = Task1.gcd(3,9);
+        System.out.println("UCLN cua 3 va 9 la:"+a);
+        int b = Task1.fibonacci(6);
+        System.out.println("So fibonacci thu 6 trong day la:"+b);
+    }
 }
