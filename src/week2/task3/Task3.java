@@ -147,10 +147,10 @@ class ATM {
 }
 
 class Teacher{
-    String name;
-    int age;
-    String sex; // male/female
-    String subjects;
+    private String name;
+    private int age;
+    private String sex; // male/female
+    private String subjects;
 
     public Teacher (String name, int age, String sex, String subjects){
         this.name = name;
