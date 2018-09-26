@@ -6,6 +6,11 @@ public class Fraction {
     private int numerator;
     private int denominator;
 
+    /**
+     * Constructor 1
+     * @param numerator - tử số
+     * @param denominator - mẫu số
+     */
     public Fraction(int numerator, int denominator) {
         // TODO: khởi tạo giá trị cho các thuộc tính numberator (tử số), denominator (mẫu số)
         this.numerator = numerator;
@@ -28,7 +33,9 @@ public class Fraction {
         return this.denominator;
     }
 
-    // Them phuong thuc toi gian phan so
+    /**
+     * Phương thức tối giản Fraction
+     */
     public void toiGianFraction (){
         int a,b,t;
         a = this.numerator;
@@ -41,8 +48,10 @@ public class Fraction {
         this.numerator = this.numerator/a;
         this.denominator = this.denominator/a;
     }
-    // Them phuong thuc in ra phan so da dinh dang
-    // Them phuong thuc in ra phan so
+
+    /**
+     * Phương thức in ra Fraction đã định dạng (vd: 2/1 = 2)
+     */
     public void showFraction (){
         if (this.numerator < 0 && this.denominator < 0){
             this.numerator = Math.abs(this.numerator);
@@ -60,6 +69,11 @@ public class Fraction {
         }
     }
 
+    /**
+     * Phương thức cộng 2 Fraction
+     * @param other - Fraction muốn cộng
+     * @return - Fraction mới mang giá trị sau khi cộng 2 Fraction (this và other)
+     */
     public Fraction add(Fraction other) {
         // TODO: Phương thức cộng hai phân số (this và other), trả về đối tượng Fraction mới
         Fraction _Fr = new Fraction(1,1);
@@ -69,6 +83,11 @@ public class Fraction {
         return _Fr;
     }
 
+    /**
+     * Phương thức trừ hai Fraction
+     * @param other - Fraction muốn trừ
+     * @return - Fraction mới mang giá trị sau khi trừ 2 Fraction (this và other)
+     */
     public Fraction subtract(Fraction other) {
         // TODO: Phương thức trừ hai phân số (this và other), trả về đối tượng Fraction mới
         Fraction _Fr = new Fraction(1,1);
@@ -78,6 +97,11 @@ public class Fraction {
         return _Fr;
     }
 
+    /**
+     * Phương thức nhân 2 Fraction
+     * @param other - Fraction muốn nhân
+     * @return - Fraction mới mang giá trị sau khi nhân 2 Fraction (this và other)
+     */
     public Fraction multiply(Fraction other) {
         // TODO: Phương thức nhân hai phân số (this và other), trả về đối tượng Fraction mới
         Fraction _Fr = new Fraction(1,1);
@@ -87,6 +111,11 @@ public class Fraction {
         return _Fr;
     }
 
+    /**
+     * Phương thức chia 2 Fraction
+     * @param other - Fraction muốn chia
+     * @return - Fraction mới mang giá trị sau khi chia 2 Fraction (this và other)
+     */
     public Fraction divide(Fraction other) {
         // TODO: Phương thức chia hai phân số (this và other), trả về đối tượng Fraction mới
         Fraction _Fr = new Fraction(1,1);
@@ -96,6 +125,11 @@ public class Fraction {
         return _Fr;
     }
 
+    /**
+     * Phương thức kiểm tra 2 Fraction có bằng nhau hay không
+     * @param obj - Fraction muốn so sánh
+     * @return - true nếu 2 Fraction bắng nhau, false nếu 2 Fraction khác nhau
+     */
     public boolean equals(Object obj){
 
         if(obj instanceof Fraction) {

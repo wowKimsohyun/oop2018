@@ -5,11 +5,20 @@ public class StudentManagement {
     // TODO: khai báo thuộc tính students là array chứa các đối tượng thuộc lớp Student (max. 100)
     public Student[] students = new Student[100];
 
+    /**
+     * Phương thức kiểm tra xem 2 student có cùng nhóm không
+     * @param s1 - đối tượng student 1
+     * @param s2 - đối tượng student 2
+     * @return trả về true nếu cùng nhóm, false nếu khác nhóm
+     */
     public boolean sameGroup(Student s1, Student s2) {
         // TODO:
         return s1.getGroup().equals(s2.getGroup());
     }
 
+    /**
+     * Phương thức in ra các học sinh theo nhóm
+     */
     void studentsByGroup() {
         // TODO:
         int k = this.students.length;
@@ -27,6 +36,10 @@ public class StudentManagement {
         }
     }
 
+    /**
+     * Xóa 1 student ra khỏi danh sách
+     * @param id - mã student cần xóa
+     */
     void removeStudent(String id) {
         // TODO:
         int i,j;

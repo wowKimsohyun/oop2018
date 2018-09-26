@@ -54,9 +54,9 @@ public class Student {
 
     /**
      * Constructor 2
-     * @param n : ten SV
-     * @param sid : ID
-     * @param em : ten Email
+     * @param n - tên SV
+     * @param sid - mã số SV
+     * @param em - địa chỉ Email
      */
     Student(String n, String sid, String em) {
         // TODO:
@@ -68,7 +68,7 @@ public class Student {
 
     /**
      * Constructor 3
-     * @param s
+     * @param s - đối tượng student muốn sao chép
      */
     Student(Student s) {
         // TODO:
@@ -78,6 +78,10 @@ public class Student {
         this.email = s.getEmail();
     }
 
+    /**
+     *
+     * @return trả về chuỗi các thông tin của student
+     */
     String getInfo() {
         // TODO:
         return this.getName()+"\n"+this.getID()+"\n"+this.getGroup()+"\n"+this.getEmail();

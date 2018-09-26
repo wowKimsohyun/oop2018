@@ -5,19 +5,24 @@ public class Task3 {
 
 //TODO: khai báo 3 class tương ứng với 3 đối tượng thực tế ở dưới
 class Triangle{
-    //a , b, c la 3 canh cua tam giac
+    // Ba cạnh của tam giác
     private double a;
     private double b;
     private double c;
 
-    // Constructer
+    /**
+     * Constructer 1
+     * @param a - cạnh của tam giác
+     * @param b - cạnh của tam giác
+     * @param c - cạnh của tam giác
+     */
     public Triangle (int a, int b, int c){
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
-    // setter/getter
+    // Setter/Getter
     public void setA(int a) {
         this.a = a;
     }
@@ -36,19 +41,30 @@ class Triangle{
     public double getC(){
         return this.c;
     }
-    // Chu vi tam giac
+
+    /**
+     * Phương thức tính chu vi của tam giác
+     * @return - giá trị chu vi của tam giác
+     */
     public double perimeterOfTriangle(){
         double t;
         t = this.a + this.b + this.c;
         return t;
     }
-    // Dien tich tam giac
+
+    /**
+     * Phương thức tính diện tích của tam giác
+     * @return - giá trị diện tích của tam giác
+     */
     public double acreageOfTriangle(){
         double t;
         t = (Math.sqrt((this.a+this.b+this.c)*(this.a+this.b-this.c)*(this.b+this.c-this.a)*(this.a+this.c-this.b)))/4;
         return t;
     }
-    // Loai tam giac
+
+    /**
+     * Phương thức kiểm tra loại của tam giác
+     */
     public void typeOfTrangle(){
         if (this.a == this.b && this.b == this.c){
             System.out.println("Tam giac vua nhap la tam giac deu");
@@ -85,12 +101,21 @@ class ATM {
     private double soTien;  // don vi $
     private String tenMK;
 
+    /**
+     * Constructer 1
+     * @param tenTK - tên chủ tài khoản ATM
+     * @param soTK - số tài khoản ATM
+     * @param soTien - số tiền trong tài khoản ATM
+     * @param tenMK - mật khẩu của tài khoản ATM
+     */
     public ATM(String tenTK, String soTK, double soTien, String tenMK){
         this.tenTK = tenTK;
         this.soTK = soTK;
         this.soTien = soTien;
         this.tenMK = tenMK;
     }
+
+    // Getter/Setter
     public void setTenTK(String tenTK) {
         this.tenTK = tenTK;
     }
@@ -123,15 +148,30 @@ class ATM {
         return tenMK;
     }
 
+    /**
+     * Phương thức chuyển tiền từ tài khoản ATM này sang tài khoản ATM khác (this và other)
+     * @param other - tài khoản muốn chuyển tiền đến
+     * @param soTien - số tiền muốn chuyển khoản
+     */
     public void chuyenTien (ATM other, double soTien){
         this.soTien = this.soTien - soTien;
         other.soTien = other.soTien + soTien;
         System.out.println("Ban da chuyen tien thanh cong den TK: "+other.getSoTK()+" - "+other.getTenTK());
     }
+
+    /**
+     * Phương thức rút tiền từ tài khoản ATM
+     * @param soTien - số tiền muốn rút
+     */
     public void rutTien (double soTien){
         this.soTien = this.soTien - soTien;
         System.out.println("So tien con lai trong tai khoan cua ban la: "+this.getSoTien()+"$");
     }
+
+    /**
+     * Phương thức đổi mật khẩu tài khoản ATM
+     * @param tenMK - mật khẩu mới
+     */
     public void doiMK(String tenMK){
         this.tenMK = tenMK;
         System.out.println("Ban da doi mat khau thanh cong");
@@ -152,12 +192,19 @@ class Teacher{
     private String sex; // male/female
     private String subjects;
 
+    /**
+     * Constructer 1
+     * @param name - tên giáo viên
+     * @param age - độ tuổi
+     * @param sex - giới tính
+     * @param subjects - bộ môn giảng dạy
+     */
     public Teacher (String name, int age, String sex, String subjects){
         this.name = name;
         this.age = age;
         this.sex = sex;
         this.subjects = subjects;
-    }
+    }// Getter/Setter
     public void setName(String name) {
         this.name = name;
     }
@@ -190,6 +237,9 @@ class Teacher{
         return subjects;
     }
 
+    /**
+     * Phương thức chào
+     */
     public void sayHello(){
         if (this.sex.equals("male")){
             System.out.println("Chao ca lop thay ten la: "+this.name);
@@ -198,9 +248,18 @@ class Teacher{
             System.out.println("Chao ca lop co ten la: "+this.name);
         }
     }
+
+    /**
+     * Phương thức dạy học
+     */
     public void dayhoc(){
         System.out.println("Dang day hoc");
     }
+
+    /**
+     * Phương thức nói
+     * @param s - chuỗi kí tự muốn nói
+     */
     public void speaking (String s){
         System.out.println(s);
     }

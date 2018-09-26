@@ -2,6 +2,12 @@ package week2.task1;
 
 public class Task1 {
 
+    /**
+     * Phương thức tính ước chung lớn nhất của 2 số truyền vào
+     * @param a - số nguyên a
+     * @param b - số nguyên b
+     * @return - giá trị ước chung lớn nhất của 2 số truyền vào
+     */
     public static int gcd(int a, int b) {
         // TODO: Tính ước chung lớn nhất của 2 số a, b
         int temp;
@@ -13,6 +19,11 @@ public class Task1 {
         return a;
     }
 
+    /**
+     * Phương thức tính dãy fibonacci
+     * @param n - vị trí số fibonacci
+     * @return - số fibonacci thứ n truyền vào
+     */
     public static int fibonacci(int n) {
         // TODO: Tìm số fibonacci ở vị trí n
         if (n==0){
