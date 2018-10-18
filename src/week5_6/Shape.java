@@ -2,11 +2,11 @@ package week5_6;
 
 
 import java.awt.*;
-import java.awt.geom.CubicCurve2D;
 
 public class Shape {
-    protected Color color;
-    protected int x,y;
+    protected Color color;  // màu của hình
+    protected int x,y;      // tọa độ tâm của hình theo trục x,y
+    protected int vx,vy;    // vận tốc theo trục x,y
 
     /**
      * Constructer
@@ -57,6 +57,16 @@ public class Shape {
 
         this.x = x;
         this.y = y;
+        this.vx = 5;
+        this.vy = 5;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Color getColor() {
+        return color;
     }
 
 }
@@ -118,34 +128,26 @@ class Square extends Shape{
         return cd;
     }
 
+    public void moving(){
 
-}
-
-class Triangle{
-
-}
-
-class Circle extends Shape{
-    private int rad;
-
-    public void setRad(int rad) {
-        this.rad = rad;
-    }
-
-    public int getRad() {
-        return rad;
-    }
-
-    /**
-     * Constructer
-     * @param color - màu của hình tròn
-     * @param x - tọa độ tâm theo trục x
-     * @param y - tọa dộ tâm theo trục y
-     * @param rad - bán kính
-     */
-    public Circle(String color, int x, int y, int rad){
-        super(color,x,y);
-        this.rad = rad;
     }
 
 }
+
+class Triangle extends Shape{
+    private int canh;
+
+    public void setCanh(int canh) {
+        this.canh = canh;
+    }
+
+    public int getCanh() {
+        return canh;
+    }
+
+    public Triangle(String color, int x, int y, int canh){
+        super(color, x, y);
+        this.canh = canh;
+    }
+}
+
