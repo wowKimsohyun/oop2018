@@ -3,7 +3,7 @@ package week5_6;
 
 import java.awt.*;
 
-public class Shape {
+abstract class Shape {
     protected Color color;  // màu của hình
     protected int x,y;      // tọa độ tâm của hình theo trục x,y
     protected int vx,vy;    // vận tốc theo trục x,y
@@ -69,6 +69,8 @@ public class Shape {
         return color;
     }
 
+    public abstract void moving();
+
 }
 class Rectangle extends Shape{
     private int cr;
@@ -96,12 +98,24 @@ class Rectangle extends Shape{
      * @param x - tọa độ tâm theo trục x
      * @param y - tọa độ tâm theo trục y
      * @param cr - chiều rộng
-     * @param cc - chiều dài
+     * @param cc - chiều cao
      */
     public Rectangle(String color, int x, int y, int cr, int cc){
         super(color,x,y);
         this.cr = cr;
         this.cc = cc;
+    }
+
+    @Override
+    public void moving(){
+        if (x + vx < 0 || x + cr + vx > Diagram.getMainFrame().getWidth()){
+            vx*=-1;
+        }
+        if (y + vy < 0 || y + cc + vy > Diagram.getMainFrame().getHeight()){
+            vy*=-1;
+        }
+        x += vx;
+        y += vy;
     }
 }
 
@@ -120,16 +134,24 @@ class Square extends Shape{
         this.cd = cd;
     }
 
-    public void setRad(int rad) {
+    public void setCd(int rad) {
         this.cd = cd;
     }
 
-    public int getRad() {
+    public int getCd() {
         return cd;
     }
 
+    @Override
     public void moving(){
-
+        if (x + vx < 0 || x + cd + vx > Diagram.getMainFrame().getWidth()){
+            vx*=-1;
+        }
+        if (y + vy < 0 || y + cd + vy > Diagram.getMainFrame().getHeight()){
+            vy*=-1;
+        }
+        x += vx;
+        y += vy;
     }
 
 }
@@ -149,5 +171,44 @@ class Triangle extends Shape{
         super(color, x, y);
         this.canh = canh;
     }
+
+    @Override
+    public void moving() {
+
+    }
 }
+class Circle extends Shape {
+    private int rad;
+
+    public void setRad(int rad) {
+        this.rad = rad;
+    }
+    public int getRad() {
+        return rad;
+    }
+    /**
+     * Constructer
+     * @param color - màu của hình tròn
+     * @param x - tọa độ tâm theo trục x
+     * @param y - tọa dộ tâm theo trục y
+     * @param rad - bán kính của hình tròn
+     */
+    public Circle(String color, int x, int y, int rad){
+        super(color,x,y);
+        this.rad = rad;
+    }
+
+    @Override
+    public void moving(){
+        if (x + vx < 0 || x + rad + vx > Diagram.getMainFrame().getWidth()){
+            vx*=-1;
+        }
+        if (y + vy < 0 || y + rad + vy > Diagram.getMainFrame().getHeight()){
+            vy*=-1;
+        }
+        x += vx;
+        y += vy;
+    }
+}
+
 
