@@ -42,6 +42,19 @@ public class Task2 {
             throw e;
         }
     }
+
+    public static void ClassCastException() throws ClassCastException{
+        try{
+            Object i = Integer.valueOf(42);
+            String s = (String)i;
+        }catch (Exception e){
+            throw  e;
+        }
+    }
+
+    public static void IOException() throws IOException{
+        throw new IOException();
+    }
     public static void main (String[] args){
         // ArrayIndexOutOfBoundsException
         try{
@@ -72,7 +85,19 @@ public class Task2 {
             System.out.println(e);
         }
 
+        // ClassCastException
+        try{
+            ClassCastException();
+        }catch (ClassCastException e){
+            System.out.println(e);
+        }
 
+        //IOException
+        try{
+            IOException();
+        }catch (IOException e){
+            System.out.println(e);
+        }
     }
 }
 
@@ -91,3 +116,4 @@ class TestNull{
         System.out.println(name.length());
     }
 }
+
