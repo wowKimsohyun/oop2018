@@ -21,7 +21,7 @@ public class Diagram {
         list.add(layer1);
         mainFrame.setSize(600,600);
         mainFrame.setVisible(true);
-        list.get(0).run();
+        //list.get(0).run();
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     public void removeCircle(){

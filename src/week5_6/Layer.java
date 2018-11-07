@@ -32,6 +32,7 @@ public class Layer extends JPanel {
             }
         }
     }
+
     public void run() {
         while(true) {
             try {
@@ -45,6 +46,7 @@ public class Layer extends JPanel {
             repaint();
         }
     }
+
     public  void paint (Graphics g){
         super.paint(g);
         for (int i = 0; i < listShape.size(); i++){
