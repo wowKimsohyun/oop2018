@@ -81,9 +81,9 @@ public class Utils {
     }
 
     public static void main (String[] args){
-        File file = findFileByName("C:\\test","file.txt");
+        //File file = findFileByName("C:\\test","file.txt");
         //writeContentToFile("C:\\test\\file.txt",true);
-        String data = readContentFromFile("C:\\test\\file.txt");
-        System.out.println(data);
+        //String data = readContentFromFile("C:\\test\\file.txt");
+        //System.out.println(data);
     }
 }
