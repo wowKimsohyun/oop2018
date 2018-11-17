@@ -10,6 +10,11 @@ import java.util.StringTokenizer;
 
 public class Task1 {
 
+    /**
+     * Lấy tât cả các phương thức vào 1 list<String>
+     * @param path - File chứa đường đẫn tới tệp cần đọc
+     * @return - trả về dữ liệu các phương thức trong tệp
+     */
     public List<String> getAllFunctions(File path){
 
         List<String> listFunct = new ArrayList();
@@ -49,30 +54,37 @@ public class Task1 {
         return listFunct;
     }
 
+    /**
+     * Tìm kiếm phương thức theo tên
+     * @param name - tên phương thức cần tìm
+     * @return - trả về phương thức cần tìm nếu tìm thấy, trả về null nếu không tìm thấy
+     */
     public String findFunctionByName(String name){
 
         List<String> listFunct = new ArrayList();
         listFunct = getAllFunctions(new File("src\\week9\\Utils.java"));
         String _name = name.substring(0,name.indexOf("("));
         String []arr = (name.substring(name.indexOf("(")+1,name.indexOf(")"))).split(",");
+
         for (String str : listFunct){
 
             if (str.contains(_name)){
 
-
                 StringTokenizer token = new StringTokenizer(str.substring(str.indexOf("(")+1,str.indexOf(")")),", ");
+
+                int check = 0;
+                int i = 0;
                 while(token.hasMoreTokens()){
 
                     String value = token.nextToken();
-                    int check = 0;
-                    for (int  i =0; i < arr.length; i++){
 
-                        if (arr[i].equalsIgnoreCase(value)){
+                    if (arr[i].equalsIgnoreCase(value)){
 
-                            check++;
-                        }
+                        check++;
+                        i++;
                     }
                     if (check == arr.length){
+
                         return str;
                     }
                 }
@@ -86,7 +98,7 @@ public class Task1 {
         List<String> list = new ArrayList();
         Task1 t1 = new Task1();
         list = t1.getAllFunctions(new File("src\\week9\\Utils.java"));
-        String b = t1.findFunctionByName("findFileByName1(String,String)");
+        String b = t1.findFunctionByName("writeContentToFile(String,boolean)");
         System.out.println(b);
 
     }
