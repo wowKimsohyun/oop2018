@@ -1,6 +1,7 @@
 package week12;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class Task1 {
         parentFamily.addChilden(ps1);
         parentFamily.addChilden(family);
         parentFamily.printNewGeneration();
+        parentFamily.printlist();
 
 
 
@@ -67,7 +69,9 @@ class Family extends Person{
         this.wife = wife;
     }
 
+    HashMap<Integer,AlonePerson> list = new HashMap<Integer,AlonePerson>();
     List<Person>  family = new ArrayList<Person>();
+    int depth = 1;
 
     public boolean getdepth(){
 
@@ -136,20 +140,24 @@ class Family extends Person{
     @Override
     public void printNewGeneration(){
 
-        List<AlonePerson> list = new ArrayList<AlonePerson>();
+        depth++;
         Iterator<Person> personIterator = family.iterator();
         while(personIterator.hasNext()){
 
             Person person = personIterator.next();
             if (person instanceof AlonePerson){
 
-                list.add((AlonePerson)person);
+                list.put(depth,(AlonePerson)person);
             }
             person.printNewGeneration();
         }
-        for (int i = 0;  i < list.size() ; i++){
+    }
 
-            System.out.println(list.get(i));
+    public void printlist(){
+
+        for ( int i = 0; i < list.size(); i++){
+
+            list.get(i);
         }
     }
 }
