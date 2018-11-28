@@ -38,7 +38,7 @@ public class Task1 {
         family.addChilden(family4);
         parentFamily.addChilden(ps1);
         parentFamily.addChilden(family);
-        parentFamily.print();
+        parentFamily.printNewGeneration();
 
 
 
@@ -53,6 +53,7 @@ abstract class Person {
     public abstract void print();
     public abstract void printAloneSoSad();
     public abstract void printFamilyHas2Son();
+    public abstract void printNewGeneration();
 }
 
 class Family extends Person{
@@ -130,8 +131,26 @@ class Family extends Person{
             person.printFamilyHas2Son();
 
         }
+    }
 
+    @Override
+    public void printNewGeneration(){
 
+        List<AlonePerson> list = new ArrayList<AlonePerson>();
+        Iterator<Person> personIterator = family.iterator();
+        while(personIterator.hasNext()){
+
+            Person person = personIterator.next();
+            if (person instanceof AlonePerson){
+
+                list.add((AlonePerson)person);
+            }
+            person.printNewGeneration();
+        }
+        for (int i = 0;  i < list.size() ; i++){
+
+            System.out.println(list.get(i));
+        }
     }
 }
 
@@ -169,11 +188,18 @@ class AlonePerson extends Person{
 
     @Override
     public void printAloneSoSad() {
+
         print();
     }
 
     @Override
     public void printFamilyHas2Son() {
         // why u been here, he/she is alone so sad :((
+    }
+
+    @Override
+    public void printNewGeneration() {
+
+        System.out.println(getName());
     }
 }
